@@ -1,0 +1,134 @@
+{
+    "quizDb": [{
+            "id": "1",
+            "question": "Comment s'appelle la zone du système solaire, s'étendant au-delà de l'orbite de Neptune et composée de divers petits corps célestes dont Pluton ?",
+            "choices": ["La ceinture de Karaté",
+                "La ceinture de d'astéroides",
+                "La ceinture de Kuiper",
+                "La ceinture de Newton"
+
+            ],
+            "answer": "La ceinture de Kuiper",
+            "explanation": "La ceinture de Kuiper est une zone du Système solaire s'étendant au-delà de l'orbite de Neptune, entre 30 et 55 unités astronomiques (ua). Cette zone en forme d'anneau est similaire à la ceinture d'astéroïdes, mais plus étendue, 20 fois plus large et de 20 à 200 fois plus massive. Comme la ceinture d'astéroïdes, elle est principalement composée de petits corps, restes de la formation du Système solaire, et d'au moins trois planètes naines, Pluton, Makémaké et Hauméa"
+        },
+        {
+            "id": "2",
+            "question": "Quelle cité antique a t-elle vue naître Alexandre le Grand ?",
+            "choices": [
+                "Pella",
+                "Samothraces",
+                "Alexandrie",
+                "Athènes"
+
+            ],
+            "answer": "Pella",
+            "explanation": "Pella (en grec ancien : Πέλλα / Pélla) est située en Macédoine-Centrale, en Grèce, surtout connue comme la capitale de l'ancien royaume de Macédoine"
+        },
+        {
+            "id": "3",
+            "question": "En quelle année a été lancé la sonde spatiale Voyager 1 ?",
+            "choices": [
+                "1977",
+                "2001",
+                "1985",
+                "1997"
+
+            ],
+            "answer": "1977",
+            "explanation": "Voyager 1 est l'une des deux sondes spatiales jumelles du programme spatial Voyager de la NASA destinées à l'étude des planètes externes du Système solaire. Elle est lancée le 5 septembre 1977. Située en 2022 à une distance de 156 unités astronomiques de notre planète, c'est l'objet humain le plus éloigné de la terre"
+        },
+        {
+            "id": "4",
+            "question": "A quelle ville italienne est rattachée la maison de Medici ?",
+            "choices": [
+                "Pise",
+                "Gênes",
+                "Naples",
+                "Florence"
+
+            ],
+            "answer": "Florence",
+            "explanation": "La maison de Médicis (Medici en italien) est une famille patricienne de Florence, dont la puissance émerge au début de la Renaissance italienne. Leur richesse, leur pouvoir et leur influence proviennent initialement de la banque"
+        },
+        {
+            "id": "5",
+            "question": "Dans quel pays constitutif du Royaume-Uni est situé l'île de Skye ?",
+            "choices": [
+                "Angleterre",
+                "Ecosse",
+                "Pays de Galles",
+                "Irlande du Nord"
+
+            ],
+            "answer": "Ecosse",
+            "explanation": "L'île de Skye, en écossais An t-Eilean Sgitheanach, est l'île la plus vaste et la plus au nord de l'archipel des Hébrides intérieures en Écosse."
+        },
+        {
+            "id": "6",
+            "question": "Qui est l'auteur du roman \"Les androïdes rêvent-ils de moutons électriques ?\" qui a inspiré Ridley Scott pour son film Blade Runner sorti en 1982 ?",
+            "choices": [
+                "Isaac Asimov",
+                "Philip K. Dick",
+                "Victor Hugo",
+                "Jack London"
+
+            ],
+            "answer": "Philip K. Dick",
+            "explanation": "Philip Kindred Dick, dit Philip K. Dick, est un auteur américain de romans, de nouvelles et d’essais de science-fiction, né le 16 décembre 1928. Certaines de ses œuvres ont été adaptées au cinéma pour devenir des films comme Blade Runner, Total Recall ou encore Minority Report"
+        },
+        {
+            "id": "7",
+            "question": "Dans quel pays sont situées les lignes de Nazca ?",
+            "choices": [
+                "Pérou",
+                "Suisse",
+                "Chili",
+                "Sri-Lanka"
+
+            ],
+            "answer": "Pérou",
+            "explanation": "Les géoglyphes de Nazca ou lignes de Nazca, sont de grandes figures tracées sur le sol, souvent d'animaux stylisés, parfois de simples lignes longues de plusieurs kilomètres, visibles dans le désert de Nazca dans le sud du Pérou."
+        },
+        {
+            "id": "8",
+            "question": "Autour de quelle planète gravitent les satellites galiléens ?",
+            "choices": [
+                "Neptune",
+                "Vénus",
+                "Jupiter",
+                "Tatooine"
+
+            ],
+            "answer": "Jupiter",
+            "explanation": "Les satellites galiléens, ou lunes galiléennes, sont les quatre plus grands satellites naturels de Jupiter. Il s'agit de Io, Europe, Ganymède et Callisto. Ils sont observés pour la première fois par Galilée"
+        },
+        {
+            "id": "9",
+            "question": "Quel est le premier long métrage d'animation produit par le Studio Ghibli ?",
+            "choices": [
+                "Nausicaä de la Vallée du Vent",
+                "Mon voisin Totoro",
+                "Le Voyage de Chihiro",
+                "Le Château dans le ciel"
+
+            ],
+            "answer": "Le Château dans le ciel",
+            "explanation": "Sorti en 1986 au Japon, le Château dans le ciel, réalisé par Hayao Miyazaki est le premier long métrage d'animation du Studio Ghibli fondé en 1985"
+        },
+        {
+            "id": "10",
+            "question": "Quelle substance provenant de lianes originaires d'Amazonie est connue pour induire une paralysie ?",
+            "choices": [
+                "Le curare",
+                "Le LSD",
+                "La mescaline",
+                "L'éther diéthylique"
+
+            ],
+            "answer": "Le curare",
+            "explanation": "Le curare est une substance extraite de certaines lianes d'Amazonie, notamment Chondodendron tomentosum et Strychnos toxifera. Les curares empêchent la transmission des impulsions nerveuses motrices aux muscles squelettiques (blocage neuromusculaire), ce qui provoque une relaxation musculaire. Certains peuples Amérindiens en enduisaient les flèches pour chasser. Le gibier était empoisonné par paralysie musculaire quelques instants après avoir été touchés."
+        }
+
+
+    ]
+}
