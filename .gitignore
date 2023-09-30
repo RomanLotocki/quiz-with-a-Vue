@@ -28,4 +28,4 @@ coverage
 *.sw?
 
 # Ignore data.json
-.src/data.json
+src/data.json
