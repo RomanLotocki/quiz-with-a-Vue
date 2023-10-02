@@ -16,8 +16,6 @@
 <script setup>
 
 //props
-defineProps(['message', 'close'])
+defineProps(['message', 'close']);
 
 </script>
-
-<style lang="scss" scoped></style>

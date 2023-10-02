@@ -43,13 +43,13 @@
         </div>
         <div v-else class="max-w-4xl px-10 my-4 py-6 bg-custom-white rounded-lg shadow-md">
             <div class="text-2xl font-light text-center">
-                <h2>Vous avez terminé le quiz</h2>
-                <p>Votre score est de <span class="font-bold">{{ getResult() }} / {{ quizData.length }}</span></p>
+                <h2>Tu as terminé le quiz</h2>
+                <p>Ton score est de <span class="font-bold">{{ getResult() }} / {{ quizData.length }}</span></p>
             </div>
             <div class="text-xl font-light py-8">
-                <p v-if="goodResult">Bravo <span class="text-2xl">&#127881;</span> Vous êtes une personne cultivée ! Soyez fier de vous et continuez à
-                    vous intéresser au monde qui vous entoure <span class="text-2xl">&#127757;</span></p>
-                <p v-else>Votre score n'est pas fou <span class="text-2xl">&#128529;</span> ... La culture générale c'est pas votre fort... Mais bonne
+                <p v-if="goodResult">Bravo <span class="font-bold">{{ userName }}</span> <span class="text-2xl">&#127881;</span> Tu es une personne cultivée ! Sois fier de toi et continue à
+                    t'intéresser au monde qui t'entoure <span class="text-2xl">&#127757;</span></p>
+                <p v-else>Ton score n'est pas fou <span class="font-bold">{{ userName }}</span> <span class="text-2xl">&#128529;</span> ... La culture générale c'est pas ton fort... Mais bonne
                     nouvelle, ça se travaille ! Alors au boulot <span class="text-2xl">&#x1F4D6;</span></p>
             </div>
             <div class="flex justify-around mt-4">
@@ -67,6 +67,7 @@
 //imports
 import sourceData from '../data.json';
 import { ref, computed } from 'vue';
+import { useUsersStore } from '@/stores/users'
 
 //variables
 const quizData = sourceData.quizDb;
@@ -79,6 +80,10 @@ const falseAnswerClass = ref(false);
 const nextButton = ref("suivant");
 const goodResult = ref(null);
 
+//store variables
+const store = useUsersStore();
+const userName = store.userName;
+
 //computed properties
 const currentItem = computed(() => {
     return quizData[currentIndex.value];
@@ -87,7 +92,6 @@ const currentItem = computed(() => {
 
 //functions
 function nextItem() {
-    console.log(goodResult.value)
     if (selectedAnswer.value != null) {
         currentIndex.value++;
         selectedAnswer.value = null;
@@ -106,7 +110,7 @@ function userAnswerHandler() {
         falseAnswerClass.value = false;
     }
     if (currentIndex.value === quizData.length - 1) {
-        nextButton.value = "score"
+        nextButton.value = "score";
     }
 }
 
@@ -135,8 +139,7 @@ function getResult() {
         }
     }
     matchingResult > 5 ? goodResult.value = true : goodResult.value = false;
-    console.log(goodResult.value)
-    return matchingResult
+    return matchingResult;
 }
 
 </script>

@@ -1,21 +1,18 @@
 <template>
     <div class="flex justify-center">
         <div class="max-w-4xl px-10 my-4 py-6 bg-custom-white rounded-lg shadow-md">
-            <h2 class="mt-2 text-3xl font-bold">
-                Try to know
+            <h2 class="mt-2 text-2xl md:text-3xl font-bold">
+                Bienvenue sur l'application qui teste ta culture générale
             </h2>
-            <p class="py-4 text-2xl font-light">
-                L'application qui teste votre culture G
-            </p>
-            <p class="py-6 text-xl font-light">Bienvenue <span class="font-medium text-custom-blue">{{ username }}</span> !
-                <br> Entrez un pseudo et cliquez sur "commencer" pour démarrer votre quiz
+            <p class="py-6 text-xl font-light">Hey <span class="font-medium text-custom-blue">{{ userName }}</span> !
+                <br> Entre un pseudo et clique sur "commencer" pour démarrer ton quiz
             </p>
             <div class="flex justify-center">
                 <div class="flex flex-wrap items-stretch">
                     <span class="z-10 leading-snug font-normal fixed text-center rounded text-base w-8 pl-3 py-3">
                         <font-awesome-icon :icon="['fas', 'user']" class="text-custom-blue" />
                     </span>
-                    <input v-model="username" ref="input" type="text" :placeholder="myPlaceholder"
+                    <input v-model="userName" ref="input" type="text" :placeholder="myPlaceholder"
                         @blur="initialPlaceholder" @focus="secondPlaceholder" @keyup.enter="start"
                         class="px-3 py-3 placeholder-slate-400 text-slate-600 relative bg-custom-white rounded text-sm border-0 shadow ring-2 ring-custom-light-green focus:ring-custom-blue focus:ring-2 pl-10" />
                 </div>
@@ -41,27 +38,32 @@
 //imports
 import { ref } from 'vue';
 import AlertComponent from "./AlertComponent.vue";
+import { useUsersStore } from '@/stores/users'
 
 //variables
-const username = ref("");
 const input = ref(null);
 const myPlaceholder = ref("votre pseudo");
 const errorInput = ref(false);
+
+//store variables
+const store = useUsersStore();
+const userName = ref(store.userName);
 
 //events
 const emit = defineEmits(['continue']);
 
 //functions
 function start() {
-    if (!username || username.value.trim() === "") {
+    if (!userName || userName.value.trim() === "") {
         input.value.focus();
         myPlaceholder.value = "entrez un pseudo";
         //using a regex in order to remove all the spaces in the string (g is the global flag to get all the occurrences)
-    } else if (username.value.replace(/ /g, "").length < 3) {
+    } else if (userName.value.replace(/ /g, "").length < 3) {
         input.value.focus();
         errorInput.value = true;
     } else {
         emit('continue');
+        store.userName = userName
     }
 }
 
@@ -77,5 +79,3 @@ function closeMessage() {
     errorInput.value = false;
 }
 </script>
-
-<style lang="scss" scoped></style>

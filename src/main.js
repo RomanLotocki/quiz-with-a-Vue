@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import './assets/tailwind.css'
@@ -17,10 +18,11 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons'
 /* add icons to the library */
 library.add(faUser, faCircleExclamation, faXmark)
 
-
+const pinia = createPinia()
 const app = createApp(App)
 
 app.use(router)
+app.use(pinia)
 app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.mount('#app')
