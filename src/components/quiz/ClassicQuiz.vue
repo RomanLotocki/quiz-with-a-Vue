@@ -47,9 +47,11 @@
                 <p>Ton score est de <span class="font-bold">{{ getResult() }} / {{ quizData.length }}</span></p>
             </div>
             <div class="text-xl font-light py-8">
-                <p v-if="goodResult">Bravo <span class="font-bold">{{ userName }}</span> <span class="text-2xl">&#127881;</span> Tu es une personne cultivée ! Sois fier de toi et continue à
+                <p v-if="goodResult">Bravo <span class="font-bold">{{ userName }}</span> <span
+                        class="text-2xl">&#127881;</span> Tu es une personne cultivée ! Sois fier de toi et continue à
                     t'intéresser au monde qui t'entoure <span class="text-2xl">&#127757;</span></p>
-                <p v-else>Ton score n'est pas fou <span class="font-bold">{{ userName }}</span> <span class="text-2xl">&#128529;</span> ... La culture générale c'est pas ton fort... Mais bonne
+                <p v-else>Ton score n'est pas fou <span class="font-bold">{{ userName }}</span> <span
+                        class="text-2xl">&#128529;</span> ... La culture générale c'est pas ton fort... Mais bonne
                     nouvelle, ça se travaille ! Alors au boulot <span class="text-2xl">&#x1F4D6;</span></p>
             </div>
             <div class="flex justify-around mt-4">
@@ -65,7 +67,7 @@
 <script setup>
 
 //imports
-import sourceData from '../data.json';
+import sourceData from '@/data.json';
 import { ref, computed } from 'vue';
 import { useUsersStore } from '@/stores/users'
 

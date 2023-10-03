@@ -5,7 +5,7 @@
                 Bienvenue sur l'application qui teste ta culture générale
             </h2>
             <p class="py-6 text-xl font-light">Hey <span class="font-medium text-custom-blue">{{ userName }}</span> !
-                <br> Entre un pseudo et clique sur "commencer" pour démarrer ton quiz
+                <br> Entre un pseudo et clique sur "commencer"
             </p>
             <div class="flex justify-center">
                 <div class="flex flex-wrap items-stretch">
@@ -37,7 +37,7 @@
 
 //imports
 import { ref } from 'vue';
-import AlertComponent from "./AlertComponent.vue";
+import AlertComponent from "@/components/AlertComponent.vue";
 import { useUsersStore } from '@/stores/users'
 
 //variables
@@ -54,7 +54,7 @@ const emit = defineEmits(['continue']);
 
 //functions
 function start() {
-    if (!userName || userName.value.trim() === "") {
+    if (!userName.value) {
         input.value.focus();
         myPlaceholder.value = "entrez un pseudo";
         //using a regex in order to remove all the spaces in the string (g is the global flag to get all the occurrences)
@@ -78,4 +78,5 @@ function secondPlaceholder() {
 function closeMessage() {
     errorInput.value = false;
 }
+
 </script>
