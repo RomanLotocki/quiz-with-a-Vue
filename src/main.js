@@ -11,12 +11,13 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faCircleExclamation, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+// import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
+// import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
-library.add(faUser, faCircleExclamation, faXmark)
+library.add(faUser, faCircleExclamation, faXmark, faGithub, faLinkedin)
 
 const pinia = createPinia()
 const app = createApp(App)
