@@ -3,9 +3,6 @@
         <div v-if="inProgress" class="max-w-4xl px-10 my-4 py-6 bg-custom-white rounded-xl shadow-md">
             <div class="mt-2">
                 <h2 class="text-xl font-semibold"><span>{{ currentIndex + 1 }}. </span>{{ currentItem.question }}</h2>
-                <!-- <p class="mt-2 text-gray-600">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora expedita
-                    dicta totam aspernatur doloremque. Excepturi iste iusto eos enim reprehenderit nisi, accusamus delectus
-                    nihil quis facere in modi ratione libero!</p> -->
                 <div>
                     <div v-for="(answer, index) in currentItem.choices" :key="index" class="flex items-center my-4">
                         <input :id="currentItem.id + index" type="radio" :name="'answers' + currentItem.id" :value="answer"
@@ -59,6 +56,7 @@
                     class="rounded bg-custom-blue px-6 py-2 font-medium leading-normal text-custom-white shadow-lg shadow-custom-blue/50 transform active:scale-75 transition-transform">
                     nouveau quiz
                 </button>
+            
             </div>
         </div>
     </div>
@@ -67,12 +65,12 @@
 <script setup>
 
 //imports
-import sourceData from '@/data.json';
 import { ref, computed } from 'vue';
 import { useUsersStore } from '@/stores/users'
+import { useDataStore } from '../../stores/data';
 
 //variables
-const quizData = sourceData.quizDb;
+// const quizData = sourceData.quizDb;
 const userAnswer = [];
 
 const currentIndex = ref(0);
@@ -83,25 +81,30 @@ const nextButton = ref("suivant");
 const goodResult = ref(null);
 
 //store variables
-const store = useUsersStore();
-const userName = store.userName;
+const userStore = useUsersStore();
+const userName = userStore.userName;
+
+const dataStore = useDataStore();
+const quizData = ref(dataStore.dataRandomizer);
+console.log(quizData.value)
 
 //computed properties
 const currentItem = computed(() => {
-    return quizData[currentIndex.value];
+    return quizData.value[currentIndex.value];
 });
-
 
 //functions
 function nextItem() {
+    
     if (selectedAnswer.value != null) {
         currentIndex.value++;
         selectedAnswer.value = null;
-        if (currentIndex.value >= quizData.length) {
-            currentIndex.value = 0;
+        if (currentIndex.value >= quizData.value.length) {
+            currentIndex.value = null;
             inProgress.value = false;
         }
     }
+    console.log(currentItem.value);
 }
 
 function userAnswerHandler() {
@@ -111,7 +114,7 @@ function userAnswerHandler() {
     } else {
         falseAnswerClass.value = false;
     }
-    if (currentIndex.value === quizData.length - 1) {
+    if (currentIndex.value === quizData.value.length - 1) {
         nextButton.value = "score";
     }
 }
@@ -121,17 +124,20 @@ function answerMsg() {
 }
 
 function resetQuiz() {
+    
     userAnswer.length = 0;
     inProgress.value = true;
     nextButton.value = "suivant";
     goodResult.value = null;
+    console.log(quizData.value);
+    
 }
 
 function getResult() {
     const correctAnswers = [];
     let matchingResult = 0;
 
-    for (const item of quizData) {
+    for (const item of quizData.value) {
         correctAnswers.push(item.answer)
     }
 
@@ -140,8 +146,9 @@ function getResult() {
             matchingResult++;
         }
     }
-    matchingResult > 5 ? goodResult.value = true : goodResult.value = false;
+    matchingResult > quizData.value.length/2 ? goodResult.value = true : goodResult.value = false;
     return matchingResult;
 }
+
 
 </script>

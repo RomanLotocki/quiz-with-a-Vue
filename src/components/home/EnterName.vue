@@ -42,7 +42,7 @@ import { useUsersStore } from '@/stores/users'
 
 //variables
 const input = ref(null);
-const myPlaceholder = ref("votre pseudo");
+const myPlaceholder = ref("ton pseudo");
 const errorInput = ref(false);
 
 //store variables
@@ -56,7 +56,7 @@ const emit = defineEmits(['continue']);
 function start() {
     if (!userName.value) {
         input.value.focus();
-        myPlaceholder.value = "entrez un pseudo";
+        myPlaceholder.value = "entre un pseudo";
         //using a regex in order to remove all the spaces in the string (g is the global flag to get all the occurrences)
     } else if (userName.value.replace(/ /g, "").length < 3) {
         input.value.focus();
@@ -68,11 +68,11 @@ function start() {
 }
 
 function initialPlaceholder() {
-    myPlaceholder.value = "votre pseudo";
+    myPlaceholder.value = "ton pseudo";
 }
 
 function secondPlaceholder() {
-    myPlaceholder.value = "entrez un pseudo";
+    myPlaceholder.value = "entre un pseudo";
 }
 
 function closeMessage() {

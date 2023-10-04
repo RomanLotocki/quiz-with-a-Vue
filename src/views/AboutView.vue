@@ -10,8 +10,7 @@
     <p class="font-light my-2">L'application est réalisée avec <a href="https://vuejs.org/" target="_blank" class="text-custom-blue font-semibold hover:animate-pulse"> Vue.js</a>
     </p>
     <h2 class="mb-2 mt-8 text-lg md:text-xl font-bold">Le dev &#129302;</h2>
-    <p class="font-light my-2">Derrière cette application, il y a moi, Roman. Je suis un développeur web avec une appétence pour le back-end même
-      si j'aime aussi passer mon temps (parfois beaucoup de temps) sur le design, l'intégration, la dynamisation
+    <p class="font-light my-2">Derrière cette application, il y a moi, Roman. Je suis un développeur web avec une appétence pour le back-end mais j'aime aussi passer du temps (parfois beaucoup de temps) sur le design, l'intégration, la dynamisation
       d'interfaces bref le front-end.</p>
     <p class="font-light my-2"><b>Quiz with a Vue</b> est un peu le résultat de deux choses que j'affectionne particulièrement : apprendre et coder... ou
       apprendre à coder... ou coder en apprenant...</p>
