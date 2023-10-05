@@ -56,7 +56,7 @@
                     class="rounded bg-custom-blue px-6 py-2 font-medium leading-normal text-custom-white shadow-lg shadow-custom-blue/50 transform active:scale-75 transition-transform">
                     nouveau quiz
                 </button>
-            
+
             </div>
         </div>
     </div>
@@ -67,12 +67,15 @@
 //imports
 import { ref, computed } from 'vue';
 import { useUsersStore } from '@/stores/users'
-import { useDataStore } from '../../stores/data';
+import sourceData from '@/data.json'
+import { quizRandomizer } from '@/utils.js'
 
 //variables
-// const quizData = sourceData.quizDb;
 const userAnswer = [];
+let originData = quizRandomizer(sourceData.quizDb);
+let quizData = originData.slice(0, 5);
 
+//refs
 const currentIndex = ref(0);
 const selectedAnswer = ref(null);
 const inProgress = ref(true);
@@ -80,31 +83,26 @@ const falseAnswerClass = ref(false);
 const nextButton = ref("suivant");
 const goodResult = ref(null);
 
-//store variables
+//Userstore
 const userStore = useUsersStore();
 const userName = userStore.userName;
 
-const dataStore = useDataStore();
-const quizData = ref(dataStore.dataRandomizer);
-console.log(quizData.value)
-
 //computed properties
 const currentItem = computed(() => {
-    return quizData.value[currentIndex.value];
+    return quizData[currentIndex.value];
 });
 
 //functions
 function nextItem() {
-    
+
     if (selectedAnswer.value != null) {
         currentIndex.value++;
         selectedAnswer.value = null;
-        if (currentIndex.value >= quizData.value.length) {
-            currentIndex.value = null;
+        if (currentIndex.value >= quizData.length) {
+            currentIndex.value = 0;
             inProgress.value = false;
         }
     }
-    console.log(currentItem.value);
 }
 
 function userAnswerHandler() {
@@ -114,7 +112,7 @@ function userAnswerHandler() {
     } else {
         falseAnswerClass.value = false;
     }
-    if (currentIndex.value === quizData.value.length - 1) {
+    if (currentIndex.value === quizData.length - 1) {
         nextButton.value = "score";
     }
 }
@@ -123,21 +121,11 @@ function answerMsg() {
     return falseAnswerClass.value ? "Mauvaise réponse " + String.fromCodePoint(0x1F62D) : "Bonne réponse " + String.fromCodePoint(0x1F601)
 }
 
-function resetQuiz() {
-    
-    userAnswer.length = 0;
-    inProgress.value = true;
-    nextButton.value = "suivant";
-    goodResult.value = null;
-    console.log(quizData.value);
-    
-}
-
 function getResult() {
     const correctAnswers = [];
     let matchingResult = 0;
 
-    for (const item of quizData.value) {
+    for (const item of quizData) {
         correctAnswers.push(item.answer)
     }
 
@@ -146,9 +134,19 @@ function getResult() {
             matchingResult++;
         }
     }
-    matchingResult > quizData.value.length/2 ? goodResult.value = true : goodResult.value = false;
+    matchingResult > quizData.length / 2 ? goodResult.value = true : goodResult.value = false;
     return matchingResult;
 }
 
+function resetQuiz() {
+
+    userAnswer.length = 0;
+    inProgress.value = true;
+    nextButton.value = "suivant";
+    goodResult.value = null;
+    //resetting the originData variable with new random data and slicing it again!
+    originData = quizRandomizer(sourceData.quizDb);
+    quizData = originData.slice(0, 5);
+}
 
 </script>
