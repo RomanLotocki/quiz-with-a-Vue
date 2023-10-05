@@ -52,10 +52,12 @@
                     nouvelle, ça se travaille ! Alors au boulot <span class="text-2xl">&#x1F4D6;</span></p>
             </div>
             <div class="flex justify-around mt-4">
-                <button type="button" @click="resetQuiz"
+                <router-link to="/">
+                    <button type="button" @click="resetQuiz"
                     class="rounded bg-custom-blue px-6 py-2 font-medium leading-normal text-custom-white shadow-lg shadow-custom-blue/50 transform active:scale-75 transition-transform">
                     nouveau quiz
                 </button>
+            </router-link>
 
             </div>
         </div>
@@ -73,7 +75,7 @@ import { quizRandomizer } from '@/utils.js'
 //variables
 const userAnswer = [];
 let originData = quizRandomizer(sourceData.quizDb);
-let quizData = originData.slice(0, 5);
+let quizData = originData.slice(0, 8);
 
 //refs
 const currentIndex = ref(0);
@@ -146,7 +148,7 @@ function resetQuiz() {
     goodResult.value = null;
     //resetting the originData variable with new random data and slicing it again!
     originData = quizRandomizer(sourceData.quizDb);
-    quizData = originData.slice(0, 5);
+    quizData = originData.slice(0, 8);
 }
 
 </script>
