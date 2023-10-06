@@ -4,10 +4,9 @@
             <h2 class="mt-2 text-2xl md:text-3xl font-bold">
                 Bienvenue sur l'application qui teste ta culture générale
             </h2>
-            <p class="py-6 text-xl font-light">Hey <span class="font-medium text-custom-blue">{{ userName }}</span> !
-                <br> Entre un pseudo et clique sur "commencer"
+            <p class="py-6 text-xl font-light">Entre un pseudo et clique sur "commencer"
             </p>
-            <div class="flex justify-center">
+            <div class="flex justify-center mt-6">
                 <div class="flex flex-wrap items-stretch">
                     <span class="z-10 leading-snug font-normal fixed text-center rounded text-base w-8 pl-3 py-3">
                         <font-awesome-icon :icon="['fas', 'user']" class="text-custom-blue" />
@@ -20,6 +19,10 @@
             <div class="flex justify-center">
                 <AlertComponent v-if="errorInput" message="Le pseudo doit avoir au moins 3 caractères"
                     :close="closeMessage" />
+            </div>
+            <div class="flex justify-center">
+                <p class="mt-6 font-light">Player : <span class="font-medium text-custom-blue">{{ userName }}</span>
+                </p>
             </div>
             <div class="flex justify-center">
                 <button type="button" @click="start"
