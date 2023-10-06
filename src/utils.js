@@ -7,4 +7,4 @@ export function quizRandomizer(data) {
         data[j] = temp;
       }
       return data;
-}
+};

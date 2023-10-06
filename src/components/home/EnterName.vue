@@ -27,8 +27,6 @@
                     commencer
                 </button>
             </div>
-
-
         </div>
     </div>
 </template>
@@ -37,8 +35,8 @@
 
 //imports
 import { ref } from 'vue';
-import AlertComponent from "@/components/AlertComponent.vue";
-import { useUsersStore } from '@/stores/users'
+import AlertComponent from "@/components/utils/Alert.vue";
+import { useUsersStore } from '@/stores/users';
 
 //variables
 const input = ref(null);
@@ -63,20 +61,20 @@ function start() {
         errorInput.value = true;
     } else {
         emit('continue');
-        store.userName = userName
+        store.userName = userName;
     }
-}
+};
 
 function initialPlaceholder() {
     myPlaceholder.value = "ton pseudo";
-}
+};
 
 function secondPlaceholder() {
     myPlaceholder.value = "entre un pseudo";
-}
+};
 
 function closeMessage() {
     errorInput.value = false;
-}
+};
 
 </script>
