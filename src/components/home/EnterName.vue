@@ -21,7 +21,7 @@
                     :close="closeMessage" />
             </div>
             <div class="flex justify-center">
-                <p class="mt-6 font-light">Player : <span class="font-medium text-custom-blue">{{ userName }}</span>
+                <p class="mt-6 font-light">Player Name: <span class="font-medium text-custom-blue">{{ userName }}</span>
                 </p>
             </div>
             <div class="flex justify-center">

@@ -2,7 +2,7 @@
     <div class="flex justify-center text-center">
         <div class="max-w-4xl px-10 my-4 py-6 bg-custom-white rounded-lg shadow-md">
             <h2 class="mt-2 text-2xl md:text-3xl font-bold">
-                Sélectionne ton type de Quiz
+                Sélectionne ton Quiz
             </h2>
             <div class="flex justify-between py-8">
 

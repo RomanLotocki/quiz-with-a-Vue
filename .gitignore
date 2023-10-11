@@ -29,3 +29,7 @@ coverage
 
 # Ignore data.json
 src/data.json
+
+src/views/TestView.vue
+
+src/components/quiz/FirstComponent.vue
