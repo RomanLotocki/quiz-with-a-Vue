@@ -8,7 +8,8 @@
             </div>
             <div class="text-xl font-light py-8">
                 <template v-if="goodResult">
-                    <p>Bravo <span class="font-bold">{{ storeUsers.userName }}</span> <span class="text-2xl">&#127881;</span> Tu es une
+                    <p>Bravo <span class="font-bold">{{ storeUsers.userName }}</span> <span
+                            class="text-2xl">&#127881;</span> Tu es une
                         personne cultivée ! Sois fier(e) de toi et continue à
                         t'intéresser au monde qui t'entoure <span class="text-2xl">&#127757;</span></p>
                     <VictoryAnimation />
@@ -51,22 +52,18 @@ function getResult() {
     let matchingResult = 0;
 
     for (const item of storeQuiz.quizData.slice(0, 8)) {
-        correctAnswers.push(item.answer)
-        
+        correctAnswers.push(item.answer);
+
     }
 
     for (let i = 0; i < correctAnswers.length; i++) {
         if (correctAnswers[i] === storeQuiz.userAnswer[i]) {
             matchingResult++;
-            
+
         }
     }
-    console.log(correctAnswers)
-    console.log(storeQuiz.userAnswer)
-    console.log(matchingResult);
     matchingResult > storeQuiz.currentIndex / 2 ? goodResult.value = true : goodResult.value = false;
     return matchingResult;
-    
 };
 
 </script>

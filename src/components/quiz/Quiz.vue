@@ -49,8 +49,6 @@ import { useQuizStore } from '@/stores/quiz.js';
 //stores
 const store = useQuizStore()
 
-console.log(store.quizData)
-
 //functions
 function nextItem() {
 
@@ -62,7 +60,6 @@ function nextItem() {
 
 function userAnswerHandler() {
     store.userAnswer.push(store.selectedAnswer);
-    console.log(store.userAnswer)
     if (store.selectedAnswer != store.currentItem.answer) {
         store.falseAnswerClass = true;
     } else {

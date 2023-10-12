@@ -1,7 +1,10 @@
-<script setup>
-
-import ClassicQuiz from '@/components/quiz/ClassicQuiz.vue';
-import { onUnmounted, onMounted } from 'vue';
+<template>
+    <SurvivalQuiz />
+   </template>
+   
+   <script setup>
+   import SurvivalQuiz from '@/components/quiz/SurvivalQuiz.vue';
+   import { onUnmounted, onMounted } from 'vue';
 import { useUsersStore } from '@/stores/users';
 import { useQuizStore } from '@/stores/quiz.js';
 import { useRouter } from 'vue-router';
@@ -24,9 +27,4 @@ onMounted(() => {
 onUnmounted(() => {
   storeQuiz.$reset()
 })
-
-</script>
-
-<template>
- <ClassicQuiz />
-</template>
+   </script>
