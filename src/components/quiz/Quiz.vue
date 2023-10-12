@@ -1,16 +1,15 @@
 <template>
     <div class="max-w-4xl px-10 my-4 py-6 bg-custom-white rounded-xl shadow-md">
         <div class="mt-2">
-            <h2 class="text-xl font-semibold"><span>{{ store.currentIndex + 1 }}. </span>{{ store.currentItem.question }}
+            <h2 class="text-xl font-semibold"><span>{{ store.currentIndex + 1 }}. </span>{{ currentItem.question }}
             </h2>
             <div>
-                <div v-for="(answer, index) in store.currentItem.choices" :key="index" class="flex items-center my-4">
-                    <input :id="store.currentItem.id + index" type="radio" :name="'answers' + store.currentItem.id"
-                        :value="answer" v-model="store.selectedAnswer" :disabled="store.selectedAnswer != null"
-                        @change="userAnswerHandler"
+                <div v-for="(answer, index) in currentItem.choices" :key="index" class="flex items-center my-4">
+                    <input :id="currentItem.id + index" type="radio" :name="'answers' + currentItem.id" :value="answer"
+                        v-model="store.selectedAnswer" :disabled="store.selectedAnswer != null" @change="userAnswerHandler"
                         class="h-4 w-4 bg-custom-white text-custom-dark-green border-gray-400 focus:ring-2 focus:ring-gray-300"
                         :class="{ 'text-red-600': store.falseAnswerClass }" />
-                    <label :for="store.currentItem.id + index" class="ml-2 block font-light">
+                    <label :for="currentItem.id + index" class="ml-2 block font-light">
                         {{ answer }}
                     </label>
                 </div>
@@ -23,9 +22,9 @@
                                 {{ answerMsg() }}
                             </p>
                             <p v-if="store.falseAnswerClass" class="mb-2 block text-large font-semibold">C'était "{{
-                                store.currentItem.answer }}"</p>
+                                currentItem.answer }}"</p>
                             <p class="font-light leading-relaxed antialiased">
-                                {{ store.currentItem.explanation }}
+                                {{ currentItem.explanation }}
                             </p>
                         </div>
                     </div>
@@ -45,9 +44,14 @@
 
 //imports
 import { useQuizStore } from '@/stores/quiz.js';
+import { computed } from 'vue';
 
 //stores
 const store = useQuizStore()
+
+const currentItem = computed(() => {
+    return store.quizData[store.currentIndex];
+});
 
 //functions
 function nextItem() {
@@ -60,7 +64,7 @@ function nextItem() {
 
 function userAnswerHandler() {
     store.userAnswer.push(store.selectedAnswer);
-    if (store.selectedAnswer != store.currentItem.answer) {
+    if (store.selectedAnswer != currentItem.value.answer) {
         store.falseAnswerClass = true;
     } else {
         store.falseAnswerClass = false;
