@@ -41,7 +41,7 @@
 
 <script setup>
 import Quiz from './Quiz.vue';
-import { computed } from 'vue';
+import { computed, onUnmounted } from 'vue';
 import { useQuizStore } from '@/stores/quiz.js';
 import { useUsersStore } from '@/stores/users';
 
@@ -61,4 +61,11 @@ const endOfQuiz = computed(() => {
     }
 });
 
+onUnmounted(() => {
+    const score = sessionStorage.getItem("score");
+
+    if (score === null || score < storeQuiz.currentIndex) {
+        sessionStorage.setItem("score", storeQuiz.currentIndex);
+    }
+});
 </script>
