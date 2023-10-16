@@ -43,12 +43,12 @@
     <Modal size="md" v-if="isShowModal" @close="closeModal" class="bg-custom-white">
         <template #header class="bg-custom-white">
             <div class="flex items-center text-lg">
-                Votre score
+                Ton score
             </div>
         </template>
         <template #body>
             <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                Vous avez répondu correctement à {{ score }} questions à la suite dans le mode Survie
+                <span class="text-custom-dark-green font-bold">{{ score }}</span> bonnes réponses à la suite dans le mode Survie
             </p>
         </template>
     </Modal>
