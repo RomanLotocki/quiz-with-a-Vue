@@ -3,7 +3,7 @@
 
         <Quiz v-if="endOfQuiz" />
 
-        <div v-else class="max-w-4xl px-10 my-4 py-6 bg-custom-white rounded-lg shadow-md">
+        <div v-else class="max-w-4xl px-8 md:px-10 my-4 py-6 bg-custom-white rounded-lg shadow-md">
             <div class="font-light text-center">
                 <h2 class="text-xl font-semibold">Ton quiz est terminé {{ storeUsers.userName }} !</h2>
                 <div v-if="storeQuiz.falseAnswerClass"

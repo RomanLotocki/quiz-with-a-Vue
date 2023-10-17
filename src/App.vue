@@ -1,5 +1,5 @@
 <template>
-  <div class="px-20 font-Roboto tracking-wide leading-relaxed min-h-screen text-gray-700 bg-custom-green">
+  <div class="px-8 md:px-20 font-Roboto tracking-wide leading-relaxed min-h-screen text-gray-700 bg-custom-green">
 
     <header>
       <NavApp />

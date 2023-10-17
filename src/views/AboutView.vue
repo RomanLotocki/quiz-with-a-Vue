@@ -1,6 +1,6 @@
 <template>
 <div class="flex justify-center">
-        <div class="max-w-4xl px-10 my-4 py-6 bg-custom-white rounded-lg shadow-md text-justify">
+        <div class="max-w-4xl px-8 md:px-10 my-4 py-6 bg-custom-white rounded-lg shadow-md text-justify">
     <h1 class="my-4 text-2xl md:text-3xl font-bold">A propos...</h1>
     <h2 class="mb-2 mt-8 text-lg md:text-xl font-bold">Le projet &#128640;</h2>
     <p class="font-light my-2"><b>Quiz with a Vue</b> est une petite application web destinée à tester tes connaissances sur des sujets divers et

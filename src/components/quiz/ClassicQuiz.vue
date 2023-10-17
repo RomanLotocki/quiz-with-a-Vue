@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-center">
         <Quiz v-if="storeQuiz.currentIndex <= 7" />
-        <div v-else class="max-w-4xl px-10 my-4 py-6 bg-custom-white rounded-lg shadow-md">
+        <div v-else class="max-w-4xl px-8 md:px-10 my-4 py-6 bg-custom-white rounded-lg shadow-md">
             <div class="text-2xl font-light text-center">
                 <h2>Tu as terminé le quiz</h2>
                 <p>Ton score est de <span class="font-bold">{{ getResult() }} / {{ storeQuiz.currentIndex }}</span></p>

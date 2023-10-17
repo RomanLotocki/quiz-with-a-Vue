@@ -1,7 +1,7 @@
 <template>
-    <div class="max-w-4xl px-10 my-4 py-6 bg-custom-white rounded-xl shadow-md">
+    <div class="max-w-4xl px-6 md:px-10 my-4 py-6 bg-custom-white rounded-xl shadow-md">
         <div class="mt-2">
-            <h2 class="text-xl font-semibold"><span>{{ store.currentIndex + 1 }}. </span>{{ currentItem.question }}
+            <h2 class="text-lg md:text-xl font-semibold"><span>{{ store.currentIndex + 1 }}. </span>{{ currentItem.question }}
             </h2>
             <div>
                 <div v-for="(answer, index) in currentItem.choices" :key="index" class="flex items-center my-4">
@@ -17,7 +17,7 @@
                 <div v-if="store.selectedAnswer != null" class="flex justify-center">
                     <div class="rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
                         :class="[store.falseAnswerClass ? 'border-t-4 border-red-600' : 'border-t-4 border-custom-dark-green']">
-                        <div class="p-6">
+                        <div class="py-6 px-4 text-justify">
                             <p class="mb-2 block text-xl font-semibold">
                                 {{ answerMsg() }}
                             </p>
